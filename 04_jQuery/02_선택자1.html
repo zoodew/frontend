@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 선택자 1</title>
+
+<!--
+    순서 바뀌면 에러 발생함.
+    02_선택자1.js가 먼저 오게 바꿔놓으면 02_선택자1.js가 실행될 때 $라는 식별자와 jQuery라는 식별자가 아직 없음
+    없는 변수에 접근하려 하기 떄문에 에러 발생
+    $ is not defined 에러가 뜨면 순서가 제대로 됐는지 확인해보기
+-->
+    <script src="./js/jquery-3.6.3.js"></script>
+    <script src="./02_선택자1.js"></script>
+</head>
+<body>
+<!-- 230118 8교시 VSCode 04_jQuery jQuery 개요 -->    
+    <h1>제이쿼리 선택자 1</h1>
+
+    <h2>1. 태그 선택자</h2>
+    <p>JAVA</p>
+    <p>Oracle</p>
+    <p>HTML5</p>
+    <h5>CSS3</h5>
+    <h5>JavaScript</h5>
+
+<!-- 230119 1교시 VSCode 04_jQuery jQuery 개요 -->
+    <h2>2. 아이디 선택자</h2>
+    <h1 id="id1">ID 1</h1>
+    <h1 id="id2">ID 2</h1>
+
+    <h2>3. 클래스 선택자</h2>
+    <!-- h1.item*3{Class $} -->
+    <h1 class="item">Class 1</h1>
+    <h1 class="item">Class 2</h1>
+    <h1 class="item">Class 3</h1>
+
+
+
+
+
+
+
+</body>
+</html>

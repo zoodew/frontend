@@ -1,0 +1,341 @@
+/* 230109 4교시 frontend 02_CSS 레이아웃 스타일 */
+
+/*잘 연결이 됐나 확인 이클립스의 시소 테스트와 같은*/
+/* * {
+    color: green;
+} */
+
+/* 230109 4교시 frontend 02_CSS 레이아웃 스타일 */
+
+/* 박스모델 */
+/* width, height */
+#fixed-size {
+    /* width, height는 '콘텐츠' 영역의 너비와 높이만 지정한다
+    브라운관에서 표현되는 총 전체적인 너비 높이는 마진과 보더 영역까지 다 합쳐서 표현해야함
+    f12개발자도구로 들어가서 확인 가능*/
+    /* border: 5px solid red; */
+    width: 200px;
+    /* height: 200px; */
+    /* padding: 10px; */
+    /* box-sizing: border-box; */
+}   /*border-box 전체 다 합쳐서 너비 높이 따짐 | content-box 콘텐츠 기준으로 너비와 높이를 따짐(기본값)*/
+
+#variable-size {
+    /* border: 2px solid red; */
+    width: 50%;
+    /* 부모 = body 브라운관에 표현되는 사이즈 부모의 50% 차지*/
+    /* height: 200px; */
+}
+
+
+/* 230109 5교시 frontend 02_CSS 레이아웃 스타일 */
+/* 중복되는 스타일을 하나의 클래스로 빼서 동일하게 적용시킴 */
+.size-test{
+    border: 5px solid red;
+    height: 200px;
+}
+
+/* display */
+.display {
+    border: 1px solid black;
+    width: 150px;
+    height: 50px;
+    margin-bottom: 10px;
+    /* 좌우 마진은 중첩이 되지 않으나 상하 마진은 중첩이 된다. 요소 사이의 여백 = 마진 */
+    /* display: none; */
+}
+/* 중복되는 스타일을 한 클래스로 묶어서 만들어줌 */
+
+.display-inline {
+    display: inline;
+    /* 인라인요소는 콘텐츠만큼의 높이 너비를 가져서 width height 설정해도 콘텐츠만큼만 공간을 가짐.*/
+}
+
+.display-block {
+    display: block;
+}
+/* 인라인 요소는 무조건 콘텐츠 영역만큼만 갖는다 width height 안 먹힘 margin은 좌우만 먹힘 */
+
+.display-inline-block {
+    display: inline-block;
+}
+/* 한 줄에 여러 개의 요소가 동시에 있음 = 인라인 요소 특징
+너비 높이를 변경했을 때 사이즈가 바뀜 = 블록레벨 요소 특징
+인라인, 블록레벨 요소 두 가지 요소의 특징을 가진 inline-block 속성 */
+
+
+/* padding / margin */
+.space {
+    width: 100px;
+    height: 100px;
+    background-color: beige;
+}
+
+#padding1 {
+    padding: 10px;
+    /* 상하좌우에 10씩 padding을 줌. 총 면적은 120이 됨*/
+}
+#padding2 {
+    /* padding-top: 50px; */
+    /* padding-right: 100px; */
+    /* padding: 50px; */
+            /* 상하좌우 */
+    /* padding: 50px 30px; */
+            /* 상하   좌우 */
+    padding: 30px 40px 50px 60px ;
+            /* 상   우   하   좌 시계방향 */
+}
+
+
+/* 230109 6교시 frontend 02_CSS 레이아웃 스타일 */
+#margin1 {
+    margin: 50px;    
+}
+#margin2 {
+    /* margin-top: 80px; */
+/* 상하 margin은 큰 쪽으로 중첩이 됨 margin2이 margin1의 50px 보다 적으면 변동이 없음 50 이상이면 늘어남
+    대신! 상하만 중첩이 되고 좌우는 중첩이 되지 않음*/
+    /* margin-left: 20px; */
+    /* margin: 50px; */
+            /* 상하좌우 */
+    /* margin: 50px 30px; */
+            /* 상하   좌우 */
+    margin: 30px 40px 50px 60px ;
+            /* 상   우   하   좌 시계방향 */
+}
+
+
+/* 테두리 스타일*/
+.border{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    border: 10px solid;
+}
+#border1 {
+    border-style: none;
+}
+#border2 {
+    border-style: hidden;
+    /* box-shadow: 5px 5px 10px 2px gray; */
+    box-shadow: 5px 5px 10px 2px gray inset;
+        /* 좌(-)우(+) | 상(-)하(+) | 흐림정도 | 번짐정도 | 색상 | 그림자안쪽으로그리기 */
+    color: yellow;      /* border 색이 아니라 글자 색에 따라 그림자 색이 달라짐*/
+}
+/* none hidden 보기에는 차이가 없어보이는데 우선순위가 hidden이 더 높음 */
+#border3 {
+    border-style: dashed;
+}
+#border4 {
+    border-style: dotted;
+    /* border-color: hotpink; */
+    /* border-color: hotpink yellow; */
+    /* border-color: aquamarine greenyellow yellow red; */
+    border-top-color: mediumspringgreen;
+}
+#border5 {
+    border-style: double;
+    border-color: red;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;       /* 가로 세로 같이 지정*/
+    border-bottom-left-radius: 30px 60px;   /* 가로 세로 따로 지정*/
+}
+#border6 {
+    border-style: groove;
+}
+#border7 {
+    border-style: ridge;
+}
+#border8 {
+    border-style: inset;
+}
+#border9 {
+    border-style: outset;
+}
+#border10 {
+    border-style: solid;
+    /* border-width: 30px; */
+                /* 상하좌우 */
+    /* border-width: 20px 30px; */
+                /* 상하  좌우 */
+    /* border-width: 20px 30px 40px 50px; */
+                /* 상   하   좌   우 */
+    border-top-width: 30px ;
+    /* 원하는 위치 지정 가능 */
+    border-left-width: thick;
+    border-right-width: medium;
+    border-bottom-width: thin;
+}
+
+
+/* 230109 7교시 frontend 02_CSS 레이아웃 스타일 */
+/*float*/
+.float {
+    border: 1px solid;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    /* display: inline; */
+    /* float: left; */
+    /* float: left 요소를 띄워서 하나씩 왼쪽에 배치 */
+    float: right;
+    /* float: right 요소를 띄워서 하나씩 오른쪽에 배치 */
+}
+    /* 인라인 블록으로 쓸지 float으로 쓸지 상황에 따라 봐가면서 하기 */
+
+
+/* position */
+#outer {
+    width: 300px;
+    height: 300px;
+    background-color: yellow;
+    position: relative;
+    left: 20px; top: 10px;
+    /* relative : 문서 흐름상 있어야 하는 곳 배치 후 그곳에서 지정한 곳으로 움직이는 것을 뜻함
+                    별도의 위치값을 지정하지 않으면 static에 있음 */
+}
+
+#first {
+    width: 200px;
+    height: 200px;
+    background-color: yellowgreen;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    /* absolute : 위치를 지정해서 움직이는데 부모나 상위요소로 static이 아닌 포지셔닝 속성을 가지고 있어야 함
+                    static 외의 포지셔닝 속성을 갖지 않았다면 가장 상위인 body 태그 기준에서 이동함*/
+}
+
+#second {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+
+#fixed {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    /* position: fixed; */
+    top: 100px;
+    left: 70px;
+    /* position: sticky;*/       /*처음 자리에 있다가 스크롤로 건들면 그때부터 따라다님 */
+}
+
+
+
+/* 230110 1교시 frontend 02_CSS 레이아웃 스타일 */
+/* visibility */
+.visibility {
+    border: 1px solid;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 5px;
+}
+#visibility1 {
+    background-color: pink;
+}
+#visibility2 {
+    /* background-color: beige; */
+    /* visibility: visible; */
+    /* visible 기본값 */
+    visibility: hidden;
+    /* visibility hidden 요소가 안 보이지만 공간은 그대로 차지하고 있음 개발자도구에서 확인 */
+    /* display: none; */
+    /* cf)visibility hidden/ display none 공간을 차지하지도 않고 보이지도 않음 */
+}
+#visibility3 {
+    background-color: skyblue;
+}
+
+
+/* z-index */
+#z-outer {
+    position: relative;
+    height: 250px;
+}
+.z-index {
+    width: 150px;
+    height: 100px;
+    border: 1px solid;
+    position: absolute;
+    /*요소들을 중첩시켜야 해서 absoloute로 지금 다 부모 요소인 z-outer의 꼭지점 기준으로 중첩되어있는 상태*/
+}
+#z-index1 {
+    top: 100px;
+    left: 100px;
+    background-color: orange;
+    z-index: 5;
+    /* 원래는 작성순서대로 밑에부터 중첩되는데 z-index를 사용해서 위로 올려줌 값이 클수록 위로 올라감*/
+}
+#z-index2 {
+    top: 50px;
+    left: 50px;
+    background-color: blueviolet;
+    z-index: 4;
+}
+#z-index3 {
+    background-color: green;
+    z-index: 9999;
+}
+
+
+/* 다단 스타일 */
+.column-wrap {
+    border: 1px solid;
+    height: 200;
+    overflow: scroll;
+    /* scroll생성 스크롤버튼 생성됨*/
+}
+#column1 {
+    column-width: 300px;
+    column-gap: 50px;
+    /* column-rule-color: orange;
+    column-rule-style: dashed;
+    column-rule-width: 5px; */
+/* 모든 단 스타일을 지정하는 방법 column-rule*/
+    column-rule: 5px dashed orange;
+}
+
+
+/* 230110 2교시 frontend 02_CSS 레이아웃 스타일 */
+#column2 {
+    column-count: 6;
+    /* 단 나누기, 브라우저의 크기가 바뀌어도 단 개수는 바뀌지 않음 단 개수 고정됨*/
+}
+#column2>h4 {
+    column-span: all;
+    /* 기사 제목만 단을 다 합쳐서 표시되도록 all : 여러 단을 다 합친다. */
+}
+
+
+/* 표 스타일 */
+table {
+    width: 300px;
+    height: 500px;
+    border: 1px solid;
+    caption-side: bottom;
+    /* html에서 caption태그가 어디에 있든 아래로 내림 */
+    /* border-collapse: collapse; */
+    /* 표의 바깥 테두리와 셀의 각 테두리를 분리(separate)/통합(collapse)을 지정하는 속성 */
+    /* border-spacing: 20px; */     /*  가로 세로 둘 다 20 */
+    border-spacing: 20px 50px;      /* 가로 20 세로 50 */
+    empty-cells: hide;              /* 빈 셀 보일지 감출지*/
+    table-layout: fixed;            /* 텍스트가 너비보다 길 때 어떻게 할지*/
+    /* word-break: break-all; */
+    white-space: nowrap;
+        /* ㄴ table-layout fixed로 했을때 한국어는 안 먹음
+        그걸 먹을 수 있게 바꾸려면 이 속성 써줘야 함. 영어나 숫자는 안 써줘도 됨*/
+}
+td {
+    width: 80px;
+    height: 100px;
+    border: 1px solid;
+    text-align: center;             /* 셀 안의 텍스트 수평 정렬 left center right*/
+    vertical-align: bottom;            /* 셀 안의 텍스트 수직 정렬 tol middle bottom*/
+    overflow: hidden;
+    text-overflow: ellipsis;        /* overflow 부터 ellipsis 까지 너비를 넘어서 텍스트 말줄임표 스타일로 보이게 해주는것 */ 
+}

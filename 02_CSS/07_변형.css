@@ -1,0 +1,193 @@
+/* *{
+    color: green;
+} */
+
+/* 230110 4교시 frontend 02_CSS 변형 */
+
+.trans {
+    width: 250px;
+    height: 200px;
+    margin-left: 30px;
+}
+
+
+/* translate */
+/* :hover 마우스를 위로 올리면 스타일이 적용됨 */
+#trans2-1:hover {
+/* 좌우로 이동  transform: translateX(x) */
+    transform: translateX(50px);
+    /* 양음수 설정 가능 좌(음수)우(양수) */
+}
+
+#trans2-2:hover {
+/* 상하로 이동  transform: translateY(y) */
+    transform: translateY(-50px);
+    /* 양음수 설정 가능 상(음수)하(양수) */
+}
+
+#trans2-3:hover {
+/* 대각선으로 이동  transform: translate(x, y) */
+    /* transform: translate(100px, 30px); */
+    transform: translateX(100px) translateY(30px);
+    /* 양음수 설정 가능*/
+}
+
+
+/* scale */
+#trans2-4:hover {
+/* 가로로 확대/축소     transform: scaleX(몇배)*/
+    /* transform: scaleX(2); */
+    transform: scaleX(-0.5);
+    /* 음수 사용하면 사진이 가로로 뒤집힘 */
+}
+
+#trans2-5:hover {
+/* 세로로 확대/축소     transform: scaleY(몇배)*/
+    /* transform: scaleY(2); */
+    transform: scaleY(-.5);
+    /* 음수 사용하면 사진이 세로로 뒤집힘 */
+}
+
+#trans2-6:hover {
+/* 세로로 확대/축소     transform: scale(몇배)*/
+    /* transform: scale(.5); */
+    /* transform: scale(.5, 0.5); */
+    transform: scaleX(.5) scaleY(0.5);
+}
+
+
+/* rotate */
+#trans2-7:hover {
+/* 회전     transform: rotate(각도)*/
+    /* transform: rotate(40deg); */
+    /* transform: rotate(1rad); */
+    /* transform: rotate(-40deg); */
+    transform: rotate(-1rad);
+    /* 양수 시계방향 회전 음수 시계반대방향 회전 */
+}
+
+
+/* skew */
+#trans2-8:hover {
+/* 세로로 뒤틀기   transform: skewX(x)*/
+    transform: skewX(20deg);
+}
+    
+#trans2-9:hover {
+/* 가로로 뒤틀기   transform: skewY(y)*/
+    transform: skewY(20deg);
+}
+
+#trans2-10:hover {
+/*  전체 뒤틀기   transform: skew(x, y)*/
+    /* transform: skew(20deg, 20deg); */
+    transform: skewX(20deg) skewY(20deg);
+}
+
+
+
+/* 230110 5교시 frontend 02_CSS 변형 */
+/* 3차원 변형 */
+/* 
+    perspective: 원근감을 주는 속성
+    z축으로 실제로는 앞으로 온 건데 perspective가 없으면 아무런 변동이 없음
+    그걸 눈으로 보이게 표현해주기 위해서 perspecrive 속성을 사용해줌
+    3차원 변형에서 써줘야 눈으로 비교 가능
+ */
+
+/* translate */
+#trans3-1:hover {
+/* 3차원 이동   translate3d(x, y, z)*/
+    transform: perspective(200px) translate3d(100px, 100px, 100px);
+}
+
+#trans3-2:hover {
+    /* z축으로 이동   translateZ(z)*/
+    transform: perspective(200px) translateZ(-100px);
+    /* 음수 사용 가능 양수(커짐) 음수(작아짐) */
+}
+
+
+/* rotate */
+#trans3-3:hover {
+/* x축으로 회전     transform: rotateX(각도)*/
+    transform: perspective(200px) rotateX(40deg);
+    /* transform: perspective(200px) rotateX(-40deg); */
+    /* transform: perspective(200px) rotateX(1rad); */
+    /* transform: perspective(200px) rotateX(30deg); */
+    /* 양수 시계방향 회전 음수 시계반대방향 회전 */
+}
+
+#trans3-4:hover {
+/* y축으로 회전     transform: rotateY(각도)*/
+    transform: perspective(200px) rotateY(40deg);
+    /* transform: perspective(200px) rotateX(-40deg); */
+    /* transform: perspective(200px) rotateX(1rad); */
+    /* transform: perspective(200px) rotateX(30deg); */
+        /* 양수 시계방향 회전 음수 시계반대방향 회전 */
+}
+
+#trans3-5:hover {
+/* z축으로 회전     transform: rotateZ(각도)*/
+    /* transform: perspective(200px) rotateZ(40deg); */
+    /* transform: perspective(200px) rotateZ(-40deg); */
+    /* transform: perspective(200px) rotateZ(1rad); */
+    transform: perspective(200px) rotateZ(30deg);
+        
+}
+
+#trans3-6:hover {
+/* 해당 요소를 주어진 각도만큼 x, y, z축을 기준으로 회전     transform: rotate3d(x, y , z, 각도)*/
+    transform: perspective(200px) rotate3d(1, 1, 1, 30deg);
+    /* x, y, z 축 다 회전 */
+    /* transform: perspective(200px) rotate3d(1, 0, 0, 30deg); */
+    /* x축으로만 회전 1, 0, 0 */
+    transform: perspective(200px) rotate3d(0, 1, 0, 30deg);
+    /* y축으로만 회전 0, 1, 0 */
+}
+
+
+
+/* 기타 변형 속성 */
+/* transform-origin */
+.to-wrap {
+    display: inline-block;
+}
+
+.to-wrap, .flower {
+    border: 1px solid;
+    width: 300px;
+    height: 200px;
+}
+
+#left-top:hover {
+    transform-origin: left top;
+    transform: rotate(30deg);
+}
+
+#right-top:hover {
+    transform-origin: right top;
+    transform: rotate(30deg);
+}
+
+#left-bottom:hover {
+    transform-origin: left bottom;
+    transform: rotate(30deg);
+}
+
+#right-bottom:hover {
+    transform-origin: right bottom;
+    transform: rotate(30deg);
+}
+
+
+/* 230110 6교시 frontend 02_CSS 변형 */
+#back1:hover {
+    transform: rotateY(180deg);
+    /* backface-visibility :visible */
+}
+#back2:hover {
+    transform: rotateY(180deg);
+    backface-visibility :hidden;
+}
+

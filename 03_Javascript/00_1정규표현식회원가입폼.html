@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규 표현식 회원가입 폼</title>
+</head>
+<body>
+    <h1>정규 표현식 회원가입 폼</h1>
+    <hr>
+    <form>
+        <label>* 아이디 : <input type="text" id="id"></label><br>
+        <p>영문자, 숫자 포함하여 총 4~12자로 입력하시오. 단, 첫 글자는 반드시 영문자로</p><br>
+        <label>* 비밀번호 : <input type="password" id="pass1"></label><br><br>
+        <label>* 비밀번호 확인 : <input type="password" id="pass2"></label><br><br>
+        <label>* 이름 : <input type="text" id="name"></label><br><br>
+        <label>* 이메일 : <input type="email" id="email"></label><br><br>
+        <label>* 취미 : <input type="text" id="hobyy"></label><br><br>
+        <label>* 거주지 : 
+            <select id="address">
+                <option value="seoul">서울</option>
+                <option value="incheon">인천</option>
+                <option value="gyenggi">경기</option>
+            </select>
+        </label>
+        <br>
+        <input type="submit" name="signUp" id="signUp" value="회원가입" onclick="return validate();">
+        <input type="reset" name="reset" id="reset" value="초기화">
+    </form>
+
+    <script>
+
+    //     function validate() {
+    //     let pass1 = document.getElementById('pass1').value;
+    //     let pass2 = document.getElementById('pass2').value;
+    
+    //     console.log(pass1);
+    //     console.log(pass2);
+
+    //     if(pass1 !== pass2){
+    //         alert('비밀번호가 일치하지 않습니다.');
+    //         return false;
+    //     }
+    //     return true;
+    // };
+
+
+
+    // 아이디 영문자 숫자 포함 4~12자 
+    // let signUp = document.getElementById('signUp')
+
+    // signUp.addEventListener('click', (event) => {
+    // let id = document.getElementById('id').value;
+    // let regExp1 = /^[a-zA-Z0-9]{4,12}$/;
+
+    // console.log(userID);
+
+    // if(!regExp1.test(id)){
+    //     alert('아이디를 잘못 입력하셨습니다.');
+    //     event.preventDefault();
+    // }
+    // })
+
+    // 비밀번호 확인 연결   영문자 숫자 특수문자 8~15자
+
+    function validate(event) {
+
+        let id = document.getElementById('id').value;
+        let regExp1 = /^[a-zA-Z0-9]{4,12}$/;
+
+        console.log(userID);
+
+        if(!regExp1.test(id)){
+            alert('아이디를 잘못 입력하셨습니다.');
+            event.preventDefault();
+        }
+
+        let pass1 = document.getElementById('pass1').value;
+        let pass2 = document.getElementById('pass2').value;
+    
+        console.log(pass1);
+        console.log(pass2);
+
+        if(pass1 !== pass2){
+            alert('비밀번호가 일치하지 않습니다.');
+            return false;
+        }
+        return true;
+    };
+
+    // 이름연결 정규표현식  한글로만 2글자 이상
+    
+    // signUp.addEventListener('click', (event) => {
+    //     let name = document.getElementById('name').value;
+    //     let regExp2 = /^[^a-zA-Z0-9]$/;
+
+    //     if(!regExp.test(id)){
+    //         alert('이름을 잘못 입력하셨습니다.');
+    //         event.preventDefault();
+    //     }
+
+    // });
+    </script>
+
+
+
+
+
+
+
+
+    <!-- <script src="./00_1정규표현식회원가입폼.js"></script> -->
+</body>
+</html>

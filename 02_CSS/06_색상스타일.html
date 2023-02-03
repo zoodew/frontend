@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>색상 스타일</title>
+
+    <style>
+/* 230110 2교시 frontend 02_CSS 색상 및 배경 스타일 */
+
+    /* body 태그에 설정을 해서 문서 전체에 배경색, 배경 이미지를 저장할 수 있다. */
+        /* body{
+            background-color: indianred;
+        } */
+
+
+        .bg-clip {
+            width: 30%;
+            height: 300px;
+            margin: 30px;
+            padding: 30px;
+            border: 15px dashed rgba(0, 0, 0, 0.3);
+            /* 색상지정의 다양한 방법 */
+            /* background-color: palegoldenrod; */
+            /* background-color: #544687; */
+            /* background-color: #743; */
+            /* background-color: rgb(0, 244,30); */
+            /* background-color: rgba(3, 49, 83, 0.3); */
+            /* background-color: hsl(230, 70%, 40%, 0.7); */
+            background-color: hsla(130, 50%, 50%, 0.4)
+        }
+
+        #bg-clip1 {
+            /* 배경색 범위 설정 background-clip */
+            background-clip: border-box;
+            /* 배경색 보더 영역까지 */
+        }
+        #bg-clip2 {
+            background-clip: padding-box;
+            /* 배경색 패딩 영역까지 */
+        }
+        #bg-clip3 {
+            background-clip: content-box;
+            /* 배경색 콘텐츠 영역까지 */
+        }
+
+
+        #bg-img {
+            width: 80%;
+            height: 800px;
+            padding: 30px;
+            border: 15px solid rgba(0, 0, 0, .3);
+            /* background-image: url(../resources/image/city1.PNG); */
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcoZEeyzKdjsIIDAz9E69XPROL3WBPLtg0Aw&usqp=CAU);
+            /* background-image: url(https://t1.daumcdn.net/cfile/tistory/11509E4D4F7316E919); */
+
+            /* 이미지 반복 설정 */
+            /* background-repeat: repeat; */
+            /* background-repeat: repeat-x; */
+            /* background-repeat: repeat-y; */
+            background-repeat: no-repeat;
+
+            /* 이미지 크기 설정 */
+            /* background-size: auto; */
+            /* background-size: contain; */
+            /* background-size: cover; */
+            /* background-size: 400px; */
+            /* background-size: 400px 100px; */
+            /* background-size: 70%; */
+            /* background-size: 70% 20%; */
+
+            /* 이미지 위치 설정 */
+            /* 기본값 : left top */
+            /* background-position: left top; */
+            /* background-position: right top; */
+            /* background-position: center top; */
+            /* background-position: center center; */
+            /* background-position: center; */
+            /* background-position: left center; */
+            /* background-position: left bottom; */
+
+            /* 이미지 배치 기준 설정 */
+            /* 기본값 : padding-box */
+            background-origin: padding-box;
+            /* background-origin: border-box; */
+            /* background-origin: content-box; */
+
+            /* 이미지를 고정하도록 설정 */
+            /* 기본값 : scroll; */
+            background-attachment: scroll;
+            /* background-attachment: fixed; */
+        }
+
+
+    </style>
+</head>
+<body>
+
+<!-- 230110 2교시 frontend 02_CSS 색상 및 배경 스타일 -->
+    <h1>색상 스타일</h1>
+    <h2>background-color, background-clip</h2>
+    <!-- div.bg-clip#bg-clip$*3 -->
+    <div class="bg-clip" id="bg-clip1"></div>
+    <div class="bg-clip" id="bg-clip2"></div>
+    <div class="bg-clip" id="bg-clip3"></div>
+
+
+    <h2>배경 이미지</h2>
+    <div id="bg-img"></div>
+
+    
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>효과</title>
+
+    <style>
+        .menu {
+            width: 300px;
+            height: 30px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;    /* pointer : 손가락 */
+            border: 1px solid;
+        }
+
+        .contents {
+            width: 300px;
+            height: 200px;
+            border: 1px solid;
+            display: none;
+            /* display: none 아코디언 형식으로 ui 구성할 때 필요 93행과 같이 보기*/
+        }
+
+    </style>
+
+    <script src="./js/jquery-3.6.3.js"></script>
+</head>
+<body>
+<!-- 230125 7교시 VSCode 04_jQuery effect -->
+    <h1>효과</h1>
+
+    <h2>1. show() / hide(() / toggle()</h2>
+
+    <button id="show">show</button>
+    <button id="hide">hide</button>
+    <button id="toggle">toggle</button>
+    <p>
+        show()는 선택된 요소를 보여주는 메소드이다. <br>
+        hide()는 선택된 요소를 숨겨주는 메소드이다. <br>
+        toggle()은 show, hide를 동시에 적용하는 메소드이다
+    </p>
+        
+    <br><br>
+
+    <img id="imgCity" src="../resources/image/city1.PNG">
+
+    <script>
+        $(document).ready(() => {
+            // alert('졸리이이이이이잉');
+
+            $('#show').on('click', () => {
+                // $('#imgCity').show();
+                $('#imgCity').show(1500);
+                // linear 움직이는 속도가 일정
+                // $('#imgCity').show(1500, 'swing');
+                // $('#imgCity').show(1500, 'linear');
+            });
+
+            // hide(시간)   지정한 시간 동안 서서히 사라짐 => 1000밀리세컨드, 1초
+            $('#hide').on('click', () => {
+                // $('#imgCity').hide();
+                $('#imgCity').hide(1000, 'linear');
+                // linear : 사라지는 속도 일정
+                // $('#imgCity').hide(1000, 'swing');
+                // swing : 사라지는 속도 점점 느려짐
+            })
+
+            $('#toggle').on('click', () => {
+                $('#imgCity').toggle(1500, 'swing');
+            });
+        });
+    </script>
+
+
+<!-- 230125 8교시 VSCode 04_jQuery effect -->
+    <h2>2. slideDown(), slideUp(), slideToggle()</h2>
+    <p>
+        slideDown()은 선택된 요소 위치에서 아래로 요소를 보여주는 메소드이다. <br>
+        slideUp()은 선택된 요소를 위로 숨겨주는 메소드이다. <br>
+        slideToggle()은 slideDown, slideUp을 동시에 적용하는 메소드이다.
+    </p>
+
+    <!-- (div.menu{$ 번째 메뉴}+p.content)*5 -->
+    <div class="menu">1 번째 메뉴</div>
+    <p class="contents"></p>
+    <div class="menu">2 번째 메뉴</div>
+    <p class="contents"></p>
+    <div class="menu">3 번째 메뉴</div>
+    <p class="contents"></p>
+    <div class="menu">4 번째 메뉴</div>
+    <p class="contents"></p>
+    <div class="menu">5 번째 메뉴</div>
+    <p class="contents"></p>
+
+    <script>
+        // ready() 메소드는 되도록이면 하나만 쓰는 것을 지양하나 여러 개 써도 무방하다.
+        $(document).ready(() => {
+            $('.menu').on('click', (event) => {
+                let content = $(event.target).next();   // event.target 객체 다음의 요소를 가져오기 위해 next() 메소드 사용.
+                                                        // 왜냐? 메뉴를 누르면 메뉴 버튼이 아니라 그 다음(아래)에 있는 요소가 늘어나는 아코디언 형식이라
+                console.log(content);
+                
+                // if(content.css('display') === 'none') {
+                //     content.slideDown(1000);
+                // } else {
+                //     content.slideUp(1000, 'swing');
+                // }
+
+                content.slideToggle(1000, 'swing');
+                    // 해당 content가 보이고 있으면 slideUp 시켜주고 보이지 않으면 sildeDown 시켜줌.
+
+            });
+        });
+    </script>
+
+
+    <h2>3. fadeIn(), fadeOut(), fadeToggle(), fadeTo()</h2>
+    <p>
+        fadeIn()은 선택된 요소를 점점 진하게 보여주는 메소드이다. <br>
+        fadeOut()은 선택된 요소를 점점 희미하게 숨겨주는 메소드이다. <br>
+        fadeToggle()은 fadeIn, fadeOut을 동시에 적용하는 메소드이다. <br>
+        fadeTo()는 선택된 요소를 설정한 값까지 희미해지는 효과를 주는 메소드이다.
+    </p>
+
+    <button id="fadeIn">fadeIn</button>
+    <button id="fadeOut">fadeOut</button>
+    <button id="fadeToggle">fadeToggle</button>
+
+    <br><br>
+
+    <img id="imgForest" src="../resources/image/forest1.PNG">
+
+    <script>
+
+        $(document).ready(() => {
+
+            $('#fadeIn').click(() => {
+                $('#imgForest').fadeIn(1000, 'swing');
+            });
+
+            $('#fadeOut').click(() => {
+                $('#imgForest').fadeOut(1000, 'linear');
+            });
+            
+            $('#fadeToggle').click(() => {
+                $('#imgForest').fadeToggle(1000, 'linear');
+            });
+
+            // 이미지에 마우스가 들어갔을 때, 나왔을 때 fadeTo로 이미지 조절
+            $('#imgForest').hover(
+                // 이미지에 마우스가 들어갔을 때
+                (event) => {
+                    $(event.target).fadeTo(500, 0.3, 'linear');   //fadeTo(시간, 투명도(0[완전투명] ~ 1[완전불투명]), linear|swing)
+                },
+                // 이미지에서 마우스가 빠져나왔을 때
+                (event) => {
+                    $(event.target).fadeTo(200, 0.8, 'swing');
+                }
+
+                // hover()에 두 가지 매개 변수 넣을 수 있음. 즉 mouseenter 이벤트와 mouseleave 이벤트를 동시에 연결한다
+                //  첫 번째 함수가 mouseenter에서 작동, 두 번째 함수가 mouseleave에서 작동
+                //  $('선택자').hover(function(){}, function(){}); 
+            );
+
+        });
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!-- 230104 6교시 frontend 01_HTML 폼(form)관련태그-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼 관련 태그</title>
+</head>
+<body>
+    <h1>폼 관련 태그</h1>
+    <h2>폼 태그의 기본 구조</h2>
+    
+<!--
+    <form 태그 속성>
+        name        : form 태그의 이름을 지정한다.
+        method      : 데이터 전송 방식을 지정한다.
+                        GET : 데이터를 URL에 노출시켜서 서버에 전달
+                        POST: 데이터를 URL에 노출시키지 않고 서버에 전달
+        action      : 데이터를 전달한 서버(페이지)를 지정한다.
+        autocomplete: 이전 입력 내용을 출력하도록 지정한다. 이전에 입력한 내용 자동 저장 (default : on)
+-->    
+    <h3>검색 폼</h3>
+    <form name="search_form">
+<!--
+    <form 태그 속성>
+            name : 폼 태그 안에서 input 태그를 구분하는 역할을 한다.
+                    서버로 값을 전달할 때 name 속성과 value(사용자가 입력하는 값) 값이 세트(name=value)로 묶여서 전송된다.
+-->
+        <label>
+<!-- <label> 입력창 옆의 텍스트 
+                레이블 태그로 감싸주면 검색할 내용과 input 태그가 하나로 합쳐진다.
+                '검색할 내용 : '을 눌러도 검색창이 눌림 묶였기 때문에-->
+            검색할 내용 : <input type="text" name="search">   <!-- input태그 : 사용자에게 입력받을 수 있는 창 생성-->
+        </label>
+        
+        <input type="submit" value="검색"> 
+<!--
+        type에 submit : 입력 값을 제출 버튼 생성  |  value 속성 : submit에 보여지는 글자 바꿔줌
+        submit 버튼을 눌렀을 때 method 속성에 지정된 전송 방식으로 action 속성에 지정한 서버로 전송된다. (후에 서버 배울 때 배움)
+-->
+    </form>
+
+
+
+<!-- 230104 7교시 frontend 01_HTML 폼(form)관련태그-->
+    <h3>회원가입 폼</h3>
+    <form name="signUp_form" autocomplete="off">    <!-- autocomplete form에 걸면 form 내에 있는 모든 요소에 적용. 아니면 input 태그에 개별로 속성 주기-->
+        <fieldset>                                  <!--fieldset : 하나의 그룹으로 묶어주는 요소-->
+            <legend>회원정보</legend>               <!-- legend : fieldset으로 묶은 폼 요소에 제목을 붙여주는 요소-->
+            <label for="userId">아이디 : </label>   <!-- 레이블 태그로 input 태그까지 묶은 게 아니라 label의 내용인 아이디 : 을 눌러도 검색창이 눌리지 않음-->
+            <input type="text" id="userId" name="userId1" required autofocus>         <!-- input 태그에 id 속성을 주고 그 id를 label 태그의 for 속성에 넣어주면 label 안에 넣은 것처럼 묶임-->
+            
+            <br><br>
+            
+            <label for="userPwd">패스워드 : </label>
+            <input type="password" id="userPwd" name="userPwd" placeholder="패스워드를 입력해주세요.">
+        </fieldset>
+        <fieldset>
+            <legend>배송정보</legend>
+            <label for="userName">수령인 : </label>
+            <input type="text" id="userName" name="userName" readonly>
+
+            <br><br>
+
+            <label for="addr">주소 : </label>
+            <input type="text" id="addr" name="addr" autocomplete="off">
+        </fieldset>
+
+        <br><br>
+        <input type="submit" value="회원가입">
+    </form>
+
+    <hr>
+
+    <h2>input 태그</h2>
+<!--
+    <input 태그 기본 속성>
+        id          : 동일한 타입의 폼 요소를 구분하기 위해 사용한다.
+        name        : 태그를 구별할 수 있도록 이름을 붙인다. (submit 시 서버로 전송되는 값들을 구분하기 위한 키값으로 사용된다.)
+        autofocus   : 요소에 마우스 커서를 표시한다.
+        required    : 필수로 입력해야 되는 태그에 사용한다.
+        readonly    : 읽기 전용으로 설정한다.
+        placeholder : 텍스트 입력에 도움이 되는 힌트를 표시한다.
+-->
+    <h3>type="hidden"</h3>
+    <!-- 서버로 전송할 때 꼭 필요한 값인데 화면에 노출시키고 싶지는 않을 때 사용 -->
+    <form>
+        <input type="hidden" name="hiddenValue" value="1234">   <!-- 화면에 보이지는 않지만 전송 input을 누르면 URL에 hiddenValue가 보임-->
+
+        <input type="submit" value="전송">
+    </form>
+
+    <h3>type="text | password | search | url | email | tel"</h3>
+    <form>
+        <label for="id123">아이디 : </label>
+        <input type="text" name="id" id="id123" value="KH"
+            size="30" maxlength="14" placeholder="아이디를 입력하세요.">
+                                    <!-- value 값 지정하고 placeholder도 지정하면 placeholder 안 나오고 value 값 나옴
+                                        placeholder는 빈값일때 기본으로 나오는 텍스트-->
+        <br><br>
+        <label for="pwd123">패스워드 : </label>
+        <input type="password" name="pwd" id="pwd123"
+            size="30" maxlength="8" placeholder="비밀번호를 입력하세요.">
+
+
+        <br><br>
+        <label for="searchValue123">검색 : </label>
+        <input type="search" name="searchValue" id="searchValue123"
+            size="30" maxlength="10" placeholder="검색할 내용을 입력하세요.">
+        
+        
+        <br><br>
+        <label for="homePage123">홈페이지 : </label>
+        <input type="url" name="homePage" id="homePage123" value="https://">
+        
+        
+        <br><br>
+        <label for="email123">이메일 : </label>
+        <input type="email" name="email" id="email123" placeholder="이메일을 입력하세요." autocomplete="off">
+
+
+        <br><br>
+        <label for="phone123">전화번호 : </label>
+        <input type="tel" name="phone" id="phone123">
+        <!--스마트폰 같은 기기에서 입력란을 누를 때 키보드를 숫자로 바꿔주는 정도이지 전화번호 타입이 안 들어가도 submit이 되고 서버로 요청이 보내짐-->
+
+
+        <br><br>
+        <input type="submit" value="전송">
+        <input type="reset" value="초기화">
+        
+    </form>
+
+    
+<!-- 230105 1교시 frontend 01_HTML 폼(form)관련태그-->
+    <h3>type="number | range"</h3>
+    <form>
+        <label for="amount123">수량 : </label>
+        <input type="number" name="amount" id="amount123" value="0"
+            step="2" min="0" max="10">
+
+
+        <br><br>
+        <label for="point123">포인트 : </label>
+        <input type="range" name="point" id="point123"
+            value="800" min="0" max="1000" step="200">
+
+
+        <br><br>
+        <input type="submit" value="전송">
+        <input type="reset" value="초기화">
+
+    </form>
+
+
+    <h3>type="color | file"</h3>
+    <form>
+        <label for="color123">색상 : </label>
+        <input type="color" name="color" id="color123"
+            value="#0000ff">
+
+
+        <br><br>
+        <label for="uploadFile123">파일 선택 : </label>
+        <input type="file" name="uploadFile" id="uploadFile123"
+            multiple>
+
+
+
+        <br><br>
+        <input type="submit" value="전송">
+        <input type="reset" value="초기화">
+
+    </form>
+
+
+        
+<!-- 230105 2교시 frontend 01_HTML 폼(form)관련태그-->
+    <h3>type="radio | checkbox"</h3>
+    <form>
+<!--
+    <radio 타입>
+        여러 항목 중 한 가지만 선택할 수 있는 타입이다.
+            - 여러 개를 선언하여 하나의 용도로 사용할 경우 name 속성의 값이 같아야 한다.
+            - value 속성은 서버로 넘길 라디오 버튼의 값을 지정한다.
+            - checked 속성은 기본적으로 선택할 항목이 있다면 사용한다.
+-->
+    <fieldset>
+        <legend>성별</legend>
+            
+        <label>                                                     <!-- label 태그로 묶어서 요소와 텍스트를 감싸기-->
+            <input type="radio" name="gender" value="M"> 남자       <!-- radio 타입에서 value : 서버로 전송될 값-->
+        </label>
+        <input type="radio" name="gender" id="gender123" value="F" checked> 
+        <label for="gender123"> 여자</label>                         <!-- label for 써서 사용해도 됨-->
+    </fieldset>
+
+
+<!--
+    <checkbox 타입>
+        여러 항목 중 여러 가지를 선택할 수 있는 타입이다.
+            - 여러 개를 선언하여 하나의 용도로 사용할 경우 name 속성의 값이 같아야 한다.
+            - value 속성은 서버로 넘길 라디오 버튼의 값을 지정한다.
+            - checked 속성은 기본적으로 선택할 항목이 있다면 사용한다.
+-->
+    <fieldset>
+        <legend>취미</legend>
+
+        <label><input type="checkbox" name="hobby" value="baseball" checked> 야구</label>
+        <label><input type="checkbox" name="hobby" value="football"> 축구</label>
+        <label><input type="checkbox" name="hobby" value="basketball"> 농구</label>
+    </fieldset>
+
+                
+    <br><br>
+    <input type="submit" value="전송">
+    <input type="reset" value="초기화">
+                
+    </form>
+
+
+
+    <h3>type="date | month | week | time | datetime | datetime-local"</h3>
+    <form>
+<!--
+    <date 타입>
+        년 / 월 / 일 의 날짜 데이터를 입력 받음
+
+    <month 타입>
+        년 / 월 의 날짜 데이터를 입력 받음
+    
+    <week 타입>
+        년 / 주(week) 의 데이터를 입력 받음
+
+    <time 타입>
+        시간(시/분/초) 데이터를 입력 받음
+
+    <datetime 타입>
+        년 / 월 / 일 / 시 / 분 / 초 의 데이터를 입력 받음
+
+    <datetime-local 타입>
+        datetime 타입은 크롬, 엣지 등의 브라우저에서 지원하지 않기 때문에 그 때 datetime-local 타입 사용
+-->
+        <label for="date123">date : </label>
+        <input type="date" name="date" id="date123"
+            value="2023-01-04" min="2023-01-03" max="2023-01-10">
+
+        
+        <br><br>
+        <label for="month123">month : </label>
+        <input type="month" name="month" id="month123"
+            value="2023-02" min="2022-12" max="2023-03">
+        
+        
+        <br><br>
+        <label for="week123">week : </label>
+        <input type="week" name="week" id="week123"
+            value="2023-W10" min="2023-W03" max="2023-W10">
+        
+
+        <br><br>
+        <label for="time123">time : </label>
+        <input type="time" name="time" id="time123"
+            value="22:59:38">
+
+
+<!--    크롬, 익스플로러, 엣지에서 지원 X >> 이럴 때 datetime-local 사용함-->
+        <br><br>
+        <label for="datetime123">datetime : </label>
+        <input type="datetime" name="datetime" id="datetime123">
+
+
+        <br><br>
+        <label for="datetime-local123">datetime-local : </label>
+        <input type="datetime-local" name="datetime-local" id="datetime-local123"
+            value="2013-01-04T22:38:12">
+
+                
+
+<!-- 230105 3교시 frontend 01_HTML 폼(form)관련태그-->
+
+<!-- cf) input의 button 타입 & button 태그-->
+        
+        <!-- button 타입 input-->
+        <br><br>
+        <input type="submit" value="전송">
+        <input type="reset" value="초기화">
+        <input type="button" value="버튼">  <!--이 상태에서는 버튼에 기능이 없음 javascript 등에서 직접 기능을 만들어 줌-->
+        <input type="button" value="버튼" onclick="alert('버튼 클릭!')">
+                            <!--onclick시 자바스크립트의 코드 alert을 통해 기능을 만든 것-->
+        
+        <!-- button 태그-->
+        <br><br>
+        <button>전송(폼 내 버튼 태그)</button>   <!-- "폼 태그 안에서" 버튼 태그에 아무런 속성을 주지 않으면 기본적으로 button 태그는 submit으로 동작한다 -->
+        <button type="submit">전송(폼 내 버튼 태그)</button> <!-- 위의 아무 속성 주지 않은 button 태그와 동일한 기능으로 동작함-->
+        <button type="reset">초기화(폼 내 버튼 태그)</button>
+        <button type="button" onclick="alert('버튼 클릭!!')">버튼(폼 내 버튼 태그)</button>
+
+    </form>
+
+        <button>전송(폼 외 버튼 태그)</button>     <!--폼 외에서 버튼 태그를 주면 일반 버튼 태그로 동작 아무런 기능을 하지 않음. 기능 지정해 줘야 함-->
+        <button type="button" onclick="alert('버튼 클릭!!')">버튼 클릭(폼 외 버튼 태그)</button>
+
+
+
+    <br><hr>
+    <h2>select 태그</h2>
+<!--
+    <select 태그>
+        드롭 다운을 이용해서 여러 개의 데이터 목록 중에 하나의 값을 선택하도록 하는 태그이다.
+        option 태그를 사용해서 데이터 목록을 추가한다
+    
+        <select 태그 속성>
+            size    : 드롭 다운 목록의 개수를 지정한다. (기본값: 1)
+            multipel: Ctrl 키를 누른 상태로 여러 개의 드롭 다운 목록을 선택할 수 있도록 한다.
+        <option 태그 속성>
+            value   : 옵션을 선택했을 때 서버로 전송된 값을 지정한다.
+            selected: 드롭 다운 목록 중에 기본적으로 선택되어 있는 옵션을 지정한다.
+-->
+    <form>
+        <label for="national123">국적 : </label>
+        <select name="national" id="national123" size="3">
+                
+            <option selected>---</option>               <!-- selected 속성 : 처음 기본으로 나올 값-->
+            <optgroup label="아시아">                   <!-- optgoup 태그 : option 태그를 묶어줌-->
+                <option value="kr">한국</option>
+                <option value="ch">중국</option>
+                <option value="jp" >일본</option>
+            </optgroup>
+            <optgroup label="기타">
+                <option value="us" label="미국"></option>   <!-- 방식은 편한대로!-->
+                <option value="fr" label="프랑스"></option>
+            </optgroup>
+        </select>
+
+
+        <br><br>
+        <input type="submit" value="전송">
+        <input type="reset" value="초기화">
+    </form>
+
+
+
+    <br><hr>
+    <h2>datalist 태그</h2>
+<!--
+    <datalist 태그>
+        텍스트 필드에서 데이터 목록 중에 하나의 값을 선택하도록 만들어주는 태그이다.
+        option 태그를 사용해서 데이터 목록을 추가한다
+-->
+    <form>
+        <label>
+            색상 : <input type="text" name="color" list="colors">
+        </label>                                    <!-- input 태그에 list 속성을 줘서 datalist 태그와 연결-->
+
+        <datalist id="colors">
+            <option value="black">검은색</option>
+            <option value="white">흰색</option>
+            <option value="skyblue">하늘색</option>
+        </datalist>
+
+
+        <br><br>
+        <input type="submit" value="전송">
+        <input type="reset" value="초기화">
+    </form>
+
+
+<!-- 230105 4교시 frontend 01_HTML 폼(form)관련태그-->
+
+    <h2>textarea 태그</h2>
+    여러 줄의 텍스트를 입력할 수 있는 태그<br>
+    <!-- cf)input 태그. input 태그 한 줄만 입력가능 textarea 여러 줄 입력 가능-->
+    <form>                                     <!-- style로 textarea 사이즈를 고정시켜줄수있음 textarea 우하단에 조절표시가 사라짐-->
+        <textarea name="textarea" rows="10" cols="45" style="resize: none;" placeholder="내용을 입력하세요."></textarea>
+        <textarea name="textarea" rows="10" cols="45" style="resize: none;" placeholder="내용을 입력하세요.">
+        안녕하세요. <!-- 내용 입력한 그대로 들어감 tab, 주석까지 포함!-->
+        </textarea>
+
+
+        <br><br>
+        <input type="submit" value="전송">
+        <input type="reset" value="초기화">
+    </form>
+
+
+    <h2>progress | meter태그</h2>
+    progress 태그 : 작업 진행 상태를 나타내는 태그<br>
+    <form>
+        <progress value="20" max="100"> <!-- 작업 진행상황을 0부터 100까지로 따지고 그 사이 값을 -->           
+        </progress>
+        <progress value="0.3"></progress><!-- max값을 안 주면 0 ~ 1까지로 따짐-->
+
+    <br><br>
+    
+    meter 태그 : 전체 크기 중에서 얼마나 차지하는지를 표현하는 태그<br>
+    <meter min="0" max="100" low="60" high="70" value="80"></meter>
+        <!-- low high로 기준을 정하고 low보다 낮으면 녹색 low high 사이는 노란색 high 이상은 빨간색-->
+    </form>
+
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!-- 230103 3교시 frontend 01_HTML -->
+
+<!-- HTML5 문서 형식 선언       HTML역할을 한다고 브라우저에 알리는 역할 -->
+<!DOCTYPE html>
+
+<!-- html = HTML 문서의 시작과 끝을 표시해 주는 태그이다. -->
+<html lang="ko">    <!-- 시작 태그 옆에 다양한 속성을 걸어 줄 수 있음 언어 한국어라는 속성 걸어줌 -->
+<!-- 
+    <head>
+            HTML문서의 각종 정보와 제목, 문서 자체에 대한 설명 및 스크립트,
+            스타일 시트의  링크 또는 선언을 포함하는 태그이다.
+            브라우저에 문서에 대한 정보를 주는 것이지 화면에 그려지지는 않음
+-->
+    <head>
+
+        <!-- meta charset = 인코딩 방식 설정           UTF-8로 인코딩 설정-->
+        <meta charset="UTF-8" >
+
+        <!-- http-equive ~~ = 익스플로러에서 현재 문서를 최신 모드로 해석하도록 설정한다. -->
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <!-- meta vp = 접속한 기기의 화면에 맞추어 확대/축소하도록 설정한다. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- meta kw = 검색어로 사용될 키워드 지정 -->
+        <meta name="keywords" content="KH, 정보교육원">
+
+        <!-- meta name="generator" = 페이지를 작성한 프로그램 -->
+        <meta name="generator" content="VSCode">
+
+        <!-- meta name="description" = 페이지에 대한 설명을 나타내는 태그 -->
+        <meta name="description" content="이 페이지는 HTML 구조와 관련된 태그들을 공부하는 페이지 입니다.">
+
+        <!-- 페이지의 제목을 나타내는 태그 -->
+        <title>HTML 구조</title>
+
+
+    </head>
+
+
+
+<!--
+    <body>
+            화면에 출력해서 보여주는 모든 내용을 담는 태그이다.
+-->
+    <body>
+        <h1>Hello World!</h1>
+    
+        안녕하세요.
+        <!-- 줄바꿈 코드 <br> -->
+        <br>
+        만나서          반갑습니다.
+        <br>
+        만나서&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- 공백은 하나만 인식. 하나 이상의 공백을 추가하기 위해서는 엔티티코드 &nbsp; 이용하기 -->
+        반갑습니다.
+        &Afr;
+<!-- 
+    <엔티티 코드>
+            Html 문서에서 특수 문자를 입력하기 위해 사용하는 코드
+-->
+    </body>
+
+</html>

@@ -1,0 +1,79 @@
+/* 230112 2교시 메뉴바 만들기 */
+
+nav {
+    border: 1px solid red;
+    box-sizing: border-box;
+    width: 1000px;
+    height: 40px;
+}
+
+#navi {
+    border: 1px solid red;
+    /* 불릿기호 제거 */
+    list-style-type: none;
+    /* li는 기본으로 왼쪽에 padding값이 들어가서 오른쪽으로 치우쳐져 있음 제거 */
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+/* id가 navi인 요소 바로 밑의 li 태그 선택 not 손자 요소(#navi li) only 자식 요소 */
+#navi > li {
+    float: left;
+    /* width가 없으면 li각 요소가 다 딱 붙어있음
+        li요소가 다섯 개니까 떨어트려서 딱 맞게 만들려면 각 20%씩 차지해야함 */
+    width: 20%;
+    height: 100%;
+    /* 텍스트 가운데 정렬 */
+    text-align: center;
+}
+
+/* id가 navi인 요소 밑의 모든 a태그 선택 */
+#navi a {
+    /* 하이퍼링크 밑줄 제거 */
+    text-decoration: none;
+    color: orange;
+    font-size: 1.5em;
+    /* 폰트 굵기 */
+    font-weight: 900;
+    height: 100%;
+    /* 상위의 li태그와 크기가 딱 맞지 않아서 display block을 통해 높이너비100%로 꽉 채워줌 */
+    display: block;
+    /* 줄 높이 지정 속성 */
+    line-height: 35px;
+}
+
+/* 마우스가 올라갔을 때 선택되는 hover */
+#navi a:hover {
+    color: orangered;
+}
+
+/* id가 navi인 태그들 바로 밑의 li 태그 바로 밑 ul 태그들 선택 */
+#navi > li > ul {
+    /* 불릿기호 제거 */
+    list-style-type: none;
+    /* li는 기본으로 padding값이 들어감. 오른쪽으로 치우침. 제거 */
+    padding: 0;
+    /* 숨겨놨다가 마우스가 올라가면 나오게 만들기 */
+        /* 1) 기본으로는 숨기기 */
+    display: none;    
+}
+
+/* id가 navi인 요소 밑 li 요소 밑 a 요소에 마우스가 올라갔을 때 + ul 요소 선택 */
+#navi > li > a:hover + ul {
+    /* 숨겨놨다가 마우스가 올라가면 나오게 만들기 */
+        /* 2) 마우스 올리면 보이게 하기
+                여기까지 하면 a에 올렸을 때 사라짐 */
+    display: block;
+}
+
+/* 숨겨놨다가 마우스가 올라가면 나오게 만들기 */
+        /* 2) 보이게 하기
+                a에 올렸을 때도 사라지지 않고 계속 화면에서 보일 수 있게 */
+#navi>li>ul:hover {
+    display: block;
+}
+
+#navi>li>ul a {
+    font-size: 1.2em;
+}

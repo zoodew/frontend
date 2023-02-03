@@ -1,0 +1,102 @@
+<!-- 230104 3교시 frontend 01_HTML 미디어관련태그 -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 관련 태그</title>
+</head>
+<body>
+    <h1>이미지 관련 태그</h1>
+
+    <h2>img 태그</h2>
+
+
+
+<!--
+    <src 속성>
+        img 태그의 속성. 이미지 파일이 있는 경로를 지정
+-->
+    <h3>src 속성</h3>
+    <!--절대 경로 지정                          파일 우클릭 경로 복사-->
+    <img src="D:\develop\frontend\resources\image\flower1.PNG" alt="">
+    <!--
+        상대 경로 지정
+            - 현재 파일 위치 기준으로 보면 상위 경로가 내가 가져오려는 파일과 같은 중복되는 상위경로임
+            상위경로를 지정하는 ../를 선택해서 가져오길 원하는 이미지 찾아가서 클릭
+    -->
+    <img src="../resources/image/flower1.PNG" alt="">
+    <!-- 웹상에 존재하는 이미지 가져오기        이미지 우클릭 > 이미지 주소 복사 src에 복사-->
+    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjAzMTVfMjYz%2FMDAxNjQ3Mjc3NzExMDEx.ptWAM0Ye5dqi3qgxm025jN_TrdY5ixkRKncoogsWTFAg.XDVpWnUsl4ogLkEhglDYLGAB2b6U2m95G2B5UIfXXzUg.JPEG.tenma1004%2F9f8db78c8fc242c29499e825c0d2a4fd.jpg&type=sc960_832" alt="">
+
+
+
+<!--
+    <alt 속성>
+        img 태그의 속성. 이미지를 제대로 표현하지 못 하는 경우에 대체 텍스트로 표현
+-->
+    <h3>alt 속성</h3>
+    <img src="../resources/image/flower11.PNG" alt="이 사진은 벚꽃 사진입니다.">
+
+
+
+<!--
+    <width, height 속성>
+        img 태그의 속성. 이미지의 크기를 지정한다. (생략 시 원본 크기로 출력)
+
+        고정 크기 단위
+            화면 사이즈가 변해도 이미지의 크기가 변하지 않는다.
+
+        가변 크기 단위
+            화면 사이즈에 따라 이미지의 크기가 변한다.
+-->
+    <h3>width height 속성</h3>
+    <h4>고정 크기 단위 : px로 지정. 화면 사이즈가 변해도 이미지의 크기가 변하지 않는다.</h4>
+    <img src="../resources/image/flower1.PNG" width="200px">        <!-- width만 줘도 원본파일 크기의 비율에 맞게 height도 조절됨-->
+    <img src="../resources/image/flower2.PNG" width="200px" height="150px">
+    
+    <h4>가변 크기 단위 : %로 지정. 화면 사이즈에 따라 이미지의 크기가 변한다.</h4>
+    <img src="../resources/image/flower1.PNG" width="15%">          <!-- % : 기준이 되는 화면에서 차지하는 비율-->
+    <img src="../resources/image/flower2.PNG" width="15%" height="150px">
+
+
+
+<!-- 230104 4교시 frontend 01_HTML 미디어관련태그 -->
+    <h2>이미지 맵</h2>
+    
+    <h4>이미지 구역을 두 개로 나누어 각각 링크 설정</h4>
+    
+    <!-- map 태그 사용하려면 usemap="#map명칭"-->
+    <img src="../resources/image/flower3.PNG" width="600px" height="400px" usemap="#map">
+    <img src="../resources/image/flower4.PNG" width="600px" height="400px" usemap="#circle_map">
+
+    <!--
+        shape   : 링크로 사용할 영역의 형태 지정                (rect : 사각형 circle : 원 ploy : 다각형 ...)
+        coords  : 분할할 영역의 좌표를 지정 (모양마다 방법이 다르다)
+                    rect일 때 잡고싶은 위치의 (좌상단(ex, 0, 0) , 우하단(ex, 300, 400)) 좌표로 지정
+                    circle일 때 원의 중심점과 반지름 길이를 지정 (중심점(300, 200), 반지름 길이(100))
+        href    : 해당 속성에 기술된 URL로 링크를 만들어준다.
+        target  : 링크 페이지가 열릴 위치                       (_self : 현재 창 | _blank 새 창)
+    -->
+    <map name="map">
+        <area shape="rect" coords="0, 0, 300, 400" href="http://www.naver.com" target="_self">
+        <area shape="rect" coords="300, 0, 600, 400" href="http://www.daum.net" target="_blank">
+    </map>
+
+    <map name="circle_map">
+        <area shape="circle" coords="300, 200, 100" href="http://www.naver.com" target="_blank">
+    </map>
+
+    <h4>구역은 마음대로 나눌 수 있음 개수 상관 위치 상관 없다</h4>
+    <img src="../resources/image/tower1.PNG" width="600px" height="300px" usemap="#prac123">
+
+    <map name="prac123">
+        <!-- <area shape="rect" coords="0,0,600,100" href="http://www.naver.com" target="_blank"> -->
+        <area shape="rect" coords="0,100,600,200" href="http://www.google.com" target="_blank">
+        <!-- <area shape="rect" coords="0,200,600,300" href="http://www.daum.net" target="_blank"> -->
+    </map>
+    
+</body>
+</html>
